@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="ExtJs 5.0" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$USER_HOME$/public_html/extjs5-pkg/src" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$USER_HOME$/public_html/extjs5-pkg/src" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

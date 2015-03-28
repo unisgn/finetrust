@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="ext-all-debug.js" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$USER_HOME$/public_html/extjs5/ext-all-debug.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$USER_HOME$/public_html/extjs5/ext-all-debug.js" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
