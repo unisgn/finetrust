@@ -1,7 +1,7 @@
 /**
  * Created by 0xFranCiS on Mar 28, 2015.
  */
-;Ext.define('Finetrust.lib.projectHub.GridPanel', {
+;Ext.define('Finetrust.lib.projectHub.ProjectGridPanel', {
     extend: 'Finetrust.lib.SimpleModelGrid',
 
     requires:[
@@ -10,17 +10,18 @@
 
     model: 'Finetrust.model.Project',
 
+    modelCardClass:'Finetrust.lib.project.XWindow',
+
     viewConfig: {
         stripeRows: true
     },
 
-    initComponent: function (cfg) {
+    initComponent: function () {
         var me = this;
 
         Ext.apply(me, {
             store: Ext.create('Ext.data.Store', {
-                model: 'Finetrust.model.Project',
-                data: me.random_store(15)
+                model: 'Finetrust.model.Project'
             }),
             columns: [
                 {xtype:'rownumberer'},
@@ -30,14 +31,14 @@
             ]
         });
 
-        me.callParent(cfg);
+        me.callParent();
     },
 
-    str_tab: 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    str_tab: '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
     random_str: function (len) {
         var ret = '';
         for (var i = 0; i < len; i++) {
-            ret += this.str_tab[Ext.Number.randomInt(0,61)]
+            ret += this.str_tab[Ext.Number.randomInt(0,this.str_tab.length - 1)]
         }
         return ret;
     },

@@ -31,14 +31,17 @@
         var me = this;
         me.xwindow = Ext.create('Finetrust.lib.projectHub.XWindow', cfg);
         me.xwindow.on({
-            destroy: me.terminate,
+            destroy: function () {
+                me.fireEvent('terminate');
+            },
             scope: me
-        })
+        });
     },
 
     terminate: function () {
         var me = this;
         me.callParent();
         me.self.instance = null;
+        //TODO implement destroy xwindow
     }
 });

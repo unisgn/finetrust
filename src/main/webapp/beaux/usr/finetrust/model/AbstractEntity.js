@@ -4,6 +4,7 @@
 ;Ext.define('Finetrust.model.AbstractEntity', {
     extend: 'Ext.data.Model',
     fields:[
+        {name:'id', type:'int'},
         {name:'createdBy', type:'string'},
         {name:'createdDate', type:'int', defaultValue: new Date().getTime()},
         {name:'lastModifiedBy', type:'string'},

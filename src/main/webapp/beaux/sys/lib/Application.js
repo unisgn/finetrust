@@ -1,5 +1,9 @@
 Ext.define('Beaux.sys.lib.Application', {
+    alternateClassName:'Beaux.Application',
 
+    mixins:{
+        observable:'Ext.util.Observable'
+    },
     /**
      * @property
      * @protected
@@ -22,19 +26,17 @@ Ext.define('Beaux.sys.lib.Application', {
      *
      */
 
-    constructor: function () {
+    constructor: function (cfg) {
+        var me = this;
         var procMgr = Beaux.getProcessMgr();
-        var pid = procMgr.registerProcess(this);
-        if (pid) {
-            this.pid = pid;
-        }
+        me.pid = procMgr.registerProcess(me);
+
+        me.mixins.observable.constructor.call(this, cfg);
+        me.on({
+            terminate: me.terminate,
+            scope: me
+        });
     },
-
-
-    /**
-     * To be implemented by concrete app
-     */
-    postConstructor: Ext.emptyFn,
 
     /**
      * @public
@@ -48,14 +50,8 @@ Ext.define('Beaux.sys.lib.Application', {
      * @public
      */
     terminate: function () {
-        this.terminated = true;
-        var procMgr = Beaux.getProcessMgr();
-
-        procMgr.deregisterProcess(this.getPid());
-    },
-
-    /**
-     * To be implemented by concrete app
-     */
-    preTerminate: Ext.emptyFn
+        var me = this;
+        me.terminated = true;
+        Beaux.getProcessMgr().deregister(me.getPid());
+    }
 });

@@ -10,7 +10,7 @@
     }());
 
     var procColl = (function () {
-        var  processes = Ext.create('Ext.util.MixedCollection');
+        var  processes = Ext.create('Ext.util.HashMap');
         return {
             getProcesses: function () {
                 return processes;
@@ -49,7 +49,7 @@
     return {
 
         /**
-         * @param {Beaux.sys.Application} _proc
+         * @param {Beaux.sys.lib.Application} _proc
          * @returns {Number} the pid of _proc assigned by mgr
          */
         registerProcess: function (_proc) {

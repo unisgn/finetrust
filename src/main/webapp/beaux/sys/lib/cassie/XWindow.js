@@ -1,7 +1,7 @@
 ﻿Ext.define('Beaux.sys.lib.cassie.XWindow', {
     extend: 'Ext.window.Window',
 
-    alternateClassName: ['Cassie.XWindow'],
+    alternateClassName: 'Cassie.XWindow',
     
     requires:[
         'Beaux.sys.lib.cassie.WindowManager',
@@ -64,7 +64,7 @@
      * @property
      * @config the application by which this window been created
      */
-    application: null,
+    application: undefined,
 
     /**
      * @private
@@ -79,10 +79,10 @@
     /**
      * @override
      */
-    initComponent: function(cfg) {
+    initComponent: function() {
         var me = this;
         me.renderTo = me.getDesktop().getRootXWindow().getDesk().getEl();
-        me.callParent(cfg);
+        me.callParent();
         me.getWindowManager().registerWindow(me);
     },
 

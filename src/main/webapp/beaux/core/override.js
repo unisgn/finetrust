@@ -1,6 +1,6 @@
 // helper functions for caret positioning in HTML text fields
 // http://www.sencha.com/forum/showthread.php?95486#post609639
-Ext.override(Ext.form.field.Text, {
+Ext.override(Ext.formPanel.field.Text, {
     setCursorPosition: function(pos) {
         var el = this.inputEl.dom;
         if (typeof(el.selectionStart) === "number") {

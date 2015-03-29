@@ -2,6 +2,10 @@
     extend: 'Beaux.sys.lib.RootXWindow',
 
 
+    /**
+     * @type {Ext.util.KeyMap}
+     */
+    globalKeymap: null,
 
     /**
      * @override
@@ -28,14 +32,13 @@
             region: 'center'
         }];
 
-        Ext.create('Ext.util.KeyMap', {
+        me.globalKeymap =  Ext.create('Ext.util.KeyMap', {
             target: Ext.getBody(),
             binding: {
                 key: 27,
                 handler: me.toggleArrangeWindows,
                 scope: me
-            },
-            ignoreInputFields: true
+            }
         });
         
         me.callParent();

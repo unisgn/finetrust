@@ -8,7 +8,7 @@ Ext.Loader.setConfig({
     }
 });
 
-Ext.Loader.loadScript('./core/override.js');
+//Ext.Loader.loadScript('./core/override.js');
 
 Ext.Loader.loadScript('./core/Beaux.js');
 

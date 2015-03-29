@@ -11,7 +11,12 @@
 
     initComponent: function (cfg) {
         var me = this;
-        me.items = [Ext.create('Finetrust.lib.projectHub.GridPanel')];
+
+        Ext.apply(me, {
+            items:[
+                Ext.create('Finetrust.lib.projectHub.ProjectGridPanel')
+            ]
+        });
         me.callParent(cfg);
     }
 });

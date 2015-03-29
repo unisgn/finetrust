@@ -4,6 +4,9 @@
 ;Ext.define('Finetrust.model.Project', {
     extend: 'Finetrust.model.BusinessEntity',
     fields:[
-        {name:'organization', type:'string'}
+        {name:'feeRate', type:'float', comment:'费率'},
+        {name:'estimateScale', type:'int'},
+        {name:'duration', type:'int'},
+        {name:'estimateSetupDate', type:'date', defaultValue: new Date().getTime()}
     ]
 });
