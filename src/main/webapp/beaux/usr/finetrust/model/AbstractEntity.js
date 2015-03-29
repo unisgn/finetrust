@@ -9,7 +9,7 @@
         {name:'lastModifiedBy', type:'string'},
         {name:'lastModifiedDate', type:'int', defaultValue:new Date().getTime()},
         {name:'version', type:'int'},
-        {name:'archived', type:'boolean'},
+        {name:'archived', type:'boolean', defaultValue:false},
         {name:'active', type:'boolean', defaultValue: true}
     ]
 });

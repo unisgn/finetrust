@@ -4,7 +4,14 @@
 ;Ext.define('Finetrust.lib.projectHub.XWindow', {
     extend: 'Beaux.sys.lib.cassie.XWindow',
 
-    initComponet: function (cfg) {
+    width: 800,
+    height: 600,
+    title: '项目管理',
+    layout:'fit',
 
+    initComponent: function (cfg) {
+        var me = this;
+        me.items = [Ext.create('Finetrust.lib.projectHub.GridPanel')];
+        me.callParent(cfg);
     }
 });

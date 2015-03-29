@@ -7,7 +7,10 @@
  */
 ;Ext.define('Finetrust.lib.SimpleModelGrid', {
     extend: 'Ext.grid.Panel',
-    i18n: {},
+
+    model:'',
+
+    queryCriteria: '',
 
     constructor: function (cfg) {
         var me = this;
@@ -21,17 +24,44 @@
         me.callParent(cfg);
 
         me.on({
-            contextmenu: me.onContextmenu,
-            itemdbclick: me.onItemdbclick,
+            itemcontextmenu: me.onItemcontextmenu,
+            itemdblclick: me.onItemdblclick,
+            containercontextmenu: me.onContainercontextmenu,
             scope: me
         });
+
+        //TODO implement shortcuts for component
+        //Ext.create('Ext.util.KeyMap', {
+        //    target: me.getId(),
+        //    binding: [{
+        //        key: 'n',
+        //        shift: true,
+        //        handler: function (keycode, e) {console.log(keycode);}
+        //    }],
+        //    scope: me
+        //});
     },
 
-    onItemdbclick: function () {
-        Ext.Msg.alert('on itemdbclick');
+    onItemdblclick: function () {
     },
 
-    onContextmenu: function () {
-        Ext.Msg.alert('on contextmenu');
+    onItemcontextmenu: function (dom, record, item, idx, e) {
+        Ext.create('Ext.menu.Menu', {
+            items:[{
+                text:'删除'
+            }]
+        }).showAt(e.getXY());
+    },
+
+    onContainercontextmenu: function (dom, e) {
+        Ext.create('Ext.menu.Menu', {
+            items:[{
+                text:'新建'
+            }]
+        }).showAt(e.getXY());
+    },
+
+    queryByCriteria: function () {
+        
     }
 });

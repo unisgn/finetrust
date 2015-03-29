@@ -32,7 +32,7 @@
             target: Ext.getBody(),
             binding: {
                 key: 27,
-                fn: me.toggleArrangeWindows,
+                handler: me.toggleArrangeWindows,
                 scope: me
             },
             ignoreInputFields: true
