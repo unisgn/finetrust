@@ -2,6 +2,8 @@ package com.finetrust.domain.entity;
 
 import com.finetrust.lib.ProjectType;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
@@ -9,11 +11,10 @@ import java.util.Date;
 /**
  * Created by 0xFranCiS on Mar 23, 2015.
  */
+@Entity
+@Table
 public class Project extends BusinessEntity {
 
-    private ProjectType type;
-    private ProductCategory category;
-    private Customer customer;
     private float feeRate;
     private int estimateScale;
     private int duration;
@@ -24,16 +25,82 @@ public class Project extends BusinessEntity {
     private String contractNo;
     private String description;
 
-    private Organization orgIntroducedBy;
-    private Organization orgCreatedBy;
-    private Organization orgOperatedBy;
-    private Organization orgSupervisedBy;
-
-
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date setupDate;
 
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date onlineDate;
     private int onlineScale;
+
+    public float getFeeRate() {
+        return feeRate;
+    }
+
+    public void setFeeRate(float feeRate) {
+        this.feeRate = feeRate;
+    }
+
+    public int getEstimateScale() {
+        return estimateScale;
+    }
+
+    public void setEstimateScale(int estimateScale) {
+        this.estimateScale = estimateScale;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public Date getEstimateSetupDate() {
+        return estimateSetupDate;
+    }
+
+    public void setEstimateSetupDate(Date estimateSetupDate) {
+        this.estimateSetupDate = estimateSetupDate;
+    }
+
+    public String getContractNo() {
+        return contractNo;
+    }
+
+    public void setContractNo(String contractNo) {
+        this.contractNo = contractNo;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getSetupDate() {
+        return setupDate;
+    }
+
+    public void setSetupDate(Date setupDate) {
+        this.setupDate = setupDate;
+    }
+
+    public Date getOnlineDate() {
+        return onlineDate;
+    }
+
+    public void setOnlineDate(Date onlineDate) {
+        this.onlineDate = onlineDate;
+    }
+
+    public int getOnlineScale() {
+        return onlineScale;
+    }
+
+    public void setOnlineScale(int onlineScale) {
+        this.onlineScale = onlineScale;
+    }
 }

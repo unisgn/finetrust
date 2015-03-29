@@ -129,6 +129,7 @@ Ext.define('Finetrust.lib.SimpleModelCard', {
         var me = this;
         me.formPanel.getForm().updateRecord(me.record);
         me.setLoading(true);
+        me.record.setId(0);
         me.record.save({
             scope: me,
             failure: function (record, op) {

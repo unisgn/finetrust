@@ -9,5 +9,6 @@ import java.util.List;
 public interface Repository<E, PK extends Serializable> {
     public E get(PK id);
     public List<E> getAll();
-    public E save(E entity);
+    public Serializable save(E entity);
+    public void delete(E entity);
 }

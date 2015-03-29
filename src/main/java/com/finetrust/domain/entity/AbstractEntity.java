@@ -10,7 +10,7 @@ import java.util.Date;
  * Created by 0xFranCiS on Mar 23, 2015.
  */
 @MappedSuperclass
-public abstract class AbstractEntity<PK extends Serializable> implements Persistable<PK>, Auditable<User, PK> {
+public abstract class AbstractEntity<PK extends Serializable> implements Persistable<PK> {
 
     private static final long serialVersionUID = -5054755613952418744L;
 
@@ -18,10 +18,7 @@ public abstract class AbstractEntity<PK extends Serializable> implements Persist
     @GeneratedValue(strategy = GenerationType.AUTO)
     private PK id;
 
-    @ManyToOne
-    private User createdBy;
-    @ManyToOne
-    private User lastModifiedBy;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
     @Temporal(TemporalType.TIMESTAMP)
@@ -48,21 +45,6 @@ public abstract class AbstractEntity<PK extends Serializable> implements Persist
         return null == getId();
     }
 
-    public User getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(final User createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public User getLastModifiedBy() {
-        return lastModifiedBy;
-    }
-
-    public void setLastModifiedBy(final User lastModifiedBy) {
-        this.lastModifiedBy = lastModifiedBy;
-    }
 
     public DateTime getCreatedDate() {
         return null == createdDate ? null : new DateTime(createdDate);

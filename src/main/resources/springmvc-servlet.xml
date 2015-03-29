@@ -12,8 +12,8 @@
 
   <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射  -->
 
-  <!--<mvc:resources mapping="/beaux/**" location="/beaux/"  />-->
-  <!--<mvc:resources mapping="/extjs/**" location="/extjs/" />-->
+  <mvc:resources mapping="/beaux/**" location="/beaux/"  />
+  <mvc:resources mapping="/extjs5/**" location="/extjs5/" />
   <!--<mvc:resources mapping="/express/**" location="/express/" />-->
 
 
