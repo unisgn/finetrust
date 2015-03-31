@@ -26,5 +26,8 @@
         <module name="finetrust" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="finetrust" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

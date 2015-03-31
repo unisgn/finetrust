@@ -12,9 +12,6 @@
     var procColl = (function () {
         var  processes = Ext.create('Ext.util.HashMap');
         return {
-            getProcesses: function () {
-                return processes;
-            },
 
             /**
              *
@@ -40,7 +37,7 @@
              * @param key {String | Number}
              * @returns {Object}
              */
-            getProc: function (key) {
+            get: function (key) {
                 return processes.get(key + '');
             }
         }
@@ -52,7 +49,7 @@
          * @param {Beaux.sys.lib.Application} _proc
          * @returns {Number} the pid of _proc assigned by mgr
          */
-        registerProcess: function (_proc) {
+        register: function (_proc) {
             var pid = pidGen.next();
             if (_proc) { //TODO determine _proc is extends Beaux.sys.Application, (implements by JSDoc)
                 procColl.register(pid, _proc);
@@ -67,7 +64,7 @@
          * @param {String | Number} pid
          * @returns {Object}
          */
-        deregisterProcess: function (pid) {
+        deregister: function (pid) {
             return  procColl.deregister(pid);
         },
 
@@ -76,23 +73,13 @@
          * @param {Number | String} pid get process by pid
          * @returns {Object}
          */
-        getProcess: function (pid) {
-            return procColl.getProc(pid);
+        get: function (pid) {
+            return procColl.get(pid);
         },
 
-        /**
-         *
-         * @returns {Ext.util.MixedCollection}
-         */
-        getProcesses: function () {
-            return procColl.getProcesses().clone();
-        },
-
-        terminateProcess: function (pid) {
-            var proc = procColl.getProc(pid);
-            if (proc && proc.terminate) {
-                proc.terminate();
-            }
+        terminate: function (pid) {
+            var proc = procColl.get(pid);
+            proc && proc.terminate && proc.terminate();
         }
     }
 });

@@ -34,12 +34,15 @@ Ext.define('Finetrust.lib.SimpleModelCard', {
     constructor: function (cfg) {
 
         var me = this;
+
+        Ext.apply(me, cfg || {});
         if (me.record) { // favor record first
             me.model = Ext.getClassName(me.record);
         } else {
             me.record = Ext.create(me.model);
         }
         me.callParent(cfg);
+
     },
 
     initComponent: function () {
@@ -127,9 +130,9 @@ Ext.define('Finetrust.lib.SimpleModelCard', {
      */
     save: function (success, callback) {
         var me = this;
-        me.formPanel.getForm().updateRecord(me.record);
+        me.formPanel.getForm().updateRecord();
         me.setLoading(true);
-        me.record.setId(0);
+        console.log(me.record);
         me.record.save({
             scope: me,
             failure: function (record, op) {

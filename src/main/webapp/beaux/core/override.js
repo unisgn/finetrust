@@ -1,6 +1,6 @@
 // helper functions for caret positioning in HTML text fields
 // http://www.sencha.com/forum/showthread.php?95486#post609639
-Ext.override(Ext.formPanel.field.Text, {
+;Ext.override(Ext.form.field.Text, {
     setCursorPosition: function(pos) {
         var el = this.inputEl.dom;
         if (typeof(el.selectionStart) === "number") {
@@ -28,4 +28,10 @@ Ext.override(Ext.formPanel.field.Text, {
             throw 'getCaretPosition() not supported';
         }
     }
+});
+
+// force to send every field to server even not modified
+// because of hibernate session's save method can not save only the modified field
+Ext.override(Ext.data.field.Field, {
+    critical: true
 });

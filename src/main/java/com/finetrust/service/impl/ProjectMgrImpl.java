@@ -18,8 +18,13 @@ public class ProjectMgrImpl implements ProjectMgr {
     private ProjectRepo repo;
 
     @Transactional
-    public Long save(Project entity) {
+    public long save(Project entity) {
         return (Long) repo.save(entity);
+    }
+
+    @Transactional
+    public void update(Project entity) {
+        repo.update(entity);
     }
 
 }

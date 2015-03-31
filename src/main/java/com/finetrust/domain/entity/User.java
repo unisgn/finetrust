@@ -5,8 +5,7 @@ import javax.persistence.*;
 /**
  * Created by 0xFranCiS on Mar 23, 2015.
  */
-@Entity
-@Table(name = "t_user")
+@Entity(name="t_user")
 public class User implements Persistable<Integer>{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

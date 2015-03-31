@@ -35,6 +35,10 @@ public class RepositoryImpl<E extends Serializable, PK extends Serializable> ext
         return  getHibernateTemplate().save(entity);
     }
 
+    public void update(E entity) {
+        getHibernateTemplate().update(entity);
+    }
+
     public void delete(E entity) {
         getHibernateTemplate().delete(entity);
     }

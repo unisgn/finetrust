@@ -6,5 +6,6 @@ import com.finetrust.domain.entity.Project;
  * Created by 0xFranCiS on Mar 23, 2015.
  */
 public interface ProjectMgr {
-    public Long save(Project entity);
+    public long save(Project entity);
+    public void update(Project eneitty);
 }

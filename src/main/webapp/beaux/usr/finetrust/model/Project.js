@@ -8,12 +8,5 @@
         {name:'estimateScale', type:'int'},
         {name:'duration', type:'int'},
         {name:'estimateSetupDate', type:'date', defaultValue: new Date().getTime()}
-    ],
-    proxy:{
-        type:'rest',
-        url:'../rest/project.json',
-        reader: {
-            type:'json'
-        }
-    }
+    ]
 });

@@ -12,7 +12,7 @@ import java.util.List;
  * Created by 0xFranCiS on Mar 29, 2015.
  */
 @RestController
-@RequestMapping(value = "/rest/project")
+@RequestMapping(value = "/rest/Project")
 public class ProjectCtrl {
     @Autowired
     private ProjectRepo repo;
@@ -26,8 +26,13 @@ public class ProjectCtrl {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public Long save(@RequestBody Project project) {
+    public long save(@RequestBody Project project) {
         return mgr.save(project);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/{id}")
+    public void update(@RequestBody Project project) {
+        mgr.update(project);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")

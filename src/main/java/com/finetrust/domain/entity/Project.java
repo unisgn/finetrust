@@ -12,7 +12,6 @@ import java.util.Date;
  * Created by 0xFranCiS on Mar 23, 2015.
  */
 @Entity
-@Table
 public class Project extends BusinessEntity {
 
     private float feeRate;

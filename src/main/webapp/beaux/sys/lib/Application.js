@@ -29,7 +29,7 @@ Ext.define('Beaux.sys.lib.Application', {
     constructor: function (cfg) {
         var me = this;
         var procMgr = Beaux.getProcessMgr();
-        me.pid = procMgr.registerProcess(me);
+        me.pid = procMgr.register(me);
 
         me.mixins.observable.constructor.call(this, cfg);
         me.on({

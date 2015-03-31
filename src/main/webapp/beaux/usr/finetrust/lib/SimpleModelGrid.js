@@ -45,12 +45,11 @@
 
     },
 
-    onItemdblclick: function () {
+    onItemdblclick: function (dom, record) {
         var me = this;
         me.launchModelCard({
             mode:'read',
-            model: me.model,
-            store: me.getStore()
+            record: record
         });
     },
 

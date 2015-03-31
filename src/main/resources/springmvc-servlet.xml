@@ -47,7 +47,7 @@
   <bean id="contentMgr" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean"
           p:favorPathExtension="true"
           p:ignoreAcceptHeader="true"
-          p:defaultContentType="text/html"
+          p:defaultContentType="application/json"
           p:useJaf="false">
     <property name="mediaTypes">
       <map>

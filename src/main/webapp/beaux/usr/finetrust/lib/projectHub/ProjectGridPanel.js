@@ -22,13 +22,6 @@
         Ext.apply(me, {
             store: Ext.create('Ext.data.Store', {
                 model: 'Finetrust.model.Project',
-                proxy:{
-                    type:'rest',
-                    url:'../rest/project.json',
-                    reader: {
-                        type:'json'
-                    }
-                },
                 autoLoad: true
             }),
             columns: [
