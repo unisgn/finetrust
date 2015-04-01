@@ -84,6 +84,8 @@
         me.renderTo = me.getDesktop().getRootXWindow().getDesk().getEl();
         me.callParent();
         me.getWindowManager().registerWindow(me);
+
+        // TODO implement window keymap
     },
 
     /**

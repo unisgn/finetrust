@@ -1,4 +1,4 @@
-package com.finetrust.domain.entity;
+package com.finetrust.util;
 
 import java.io.Serializable;
 

@@ -15,8 +15,9 @@ Ext.define('Finetrust.lib.project.XWindow', {
         me.formPanel = Ext.create('Ext.form.Panel', {
             layout:'form',
             padding:5,
-            fieldDefaults: {
-                labelWidth: 60
+            defaults: {
+                labelWidth: 60,
+                labelAlign: 'right'
             },
             defaultType:'textfield',
             items:[{
