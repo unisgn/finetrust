@@ -52,4 +52,8 @@ public class ParamWrapper {
     public void setSorter(List<Sorter> sorter) {
         this.sorter = sorter;
     }
+
+    public Pager getPager() {
+        return new Pager(page, start, limit);
+    }
 }

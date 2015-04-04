@@ -16,6 +16,9 @@ Ext.define('Finetrust.lib.SimpleModelCard', {
     width: 600,
     height: 400,
 
+    formConfig:null,
+    formPanel:null,
+
     edit_indicator: ' * ',
 
     i18n: {
@@ -46,9 +49,11 @@ Ext.define('Finetrust.lib.SimpleModelCard', {
     },
 
     initComponent: function () {
-        var me = this;
-
-        if (!me.readonly) {
+        var me = this,
+            readonly = !!me.readonly;
+        me.formPanel = Ext.create('Ext.form.Panel', me.formConfig);
+        me.items = [me.formPanel];
+        if (!readonly) {
             me.dockedItems = [{
                 xtype: 'toolbar',
                 dock: 'bottom',
@@ -77,8 +82,20 @@ Ext.define('Finetrust.lib.SimpleModelCard', {
                 ]
             }];
         }
-
         me.callParent();
+
+        if (readonly) {
+            me.on({
+                afterrender: function () {
+                    me.formPanel.getForm().getFields().each(function (item) {
+                        item.setClickToEdit && item.setClickToEdit(false);
+                        item.setReadOnly && item.setReadOnly(readonly);
+                    });
+                },
+                scope: me
+            });
+
+        }
         me.formPanel.getForm().loadRecord(me.record);
     },
 

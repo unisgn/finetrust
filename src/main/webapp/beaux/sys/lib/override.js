@@ -1,6 +1,15 @@
 // helper functions for caret positioning in HTML text fields
 // http://www.sencha.com/forum/showthread.php?95486#post609639
-;Ext.override(Ext.form.field.Text, {
+
+// force to send every field to server even not modified
+// because of hibernate session's save method can not save only the modified field
+;Ext.override(Ext.data.field.Field, {
+    critical: true
+});
+
+
+Ext.override(Ext.form.field.Text, {
+
     setCursorPosition: function(pos) {
         var el = this.inputEl.dom;
         if (typeof(el.selectionStart) === "number") {
@@ -27,24 +36,41 @@
         } else {
             throw 'getCaretPosition() not supported';
         }
-    }
-});
-
-// force to send every field to server even not modified
-// because of hibernate session's save method can not save only the modified field
-Ext.override(Ext.data.field.Field, {
-    critical: true
-});
-
-
-Ext.override(Ext.form.field.Text, {
+    },
 
     /**
-     * dynamically change this property is not supported yet
-     * TODO evaluate the need for feature of dynamically change this property
      * @private
      */
-    clickToEdit: false,
+    clickToEdit: true,
+
+    getClickToEdit: function () {
+        return this.clickToEdit;
+    },
+
+    setClickToEdit: function (flag) {
+        var me = this,
+            _flag = !!flag,
+            el = me.inputEl;
+        me.clickToEdit = (_flag);
+        if (_flag) {
+            me.mon(el, {
+                scope: me,
+                focus: me.toggleReadOnly,
+                blur: me.toggleReadOnly
+            });
+        } else {
+            me.mun(el, {
+                scope: me,
+                focus: me.toggleReadOnly,
+                blur: me.toggleReadOnly
+            });
+        }
+    },
+
+
+    toggleReadOnly: function () {
+        this.setReadOnly(!this.readOnly);
+    },
 
     setReadOnly: function(readOnly) {
         var me = this,
@@ -89,8 +115,8 @@ Ext.override(Ext.form.field.Text, {
         me.invokeTriggers('afterFieldRender');
 
         // override to setup border
-        if (me.clickToEdit && me.readOnly) {
-            me.triggerWrap.setBorder(0);
+        if (me.clickToEdit) {
+            me.setReadOnly(true);
         }
     },
 
@@ -116,16 +142,11 @@ Ext.override(Ext.form.field.Text, {
         }
 
         // add click to edit function
-        if (me.clickToEdit) {
+        if (me.getClickToEdit()) {
             me.mon(el, {
                 scope: me,
-                click: function () {
-                    me.setReadOnly(!me.readOnly);
-                },
-                blur: function () {
-                    me.setReadOnly(!me.readOnly);
-                    // TODO add class to changed field
-                }
+                focus: me.toggleReadOnly,
+                blur: me.toggleReadOnly
             });
         }
     }

@@ -27,7 +27,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="finetrust" target="1.5" />
+      <module name="finetrust" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

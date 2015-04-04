@@ -12,7 +12,8 @@ Ext.define('Finetrust.lib.project.XWindow', {
 
     initComponent: function () {
         var me = this;
-        me.formPanel = Ext.create('Ext.form.Panel', {
+
+        me.formConfig = {
             layout:'form',
             padding:5,
             defaults: {
@@ -49,10 +50,7 @@ Ext.define('Finetrust.lib.project.XWindow', {
                 xtype:'datefield',
                 name:'estimateSetupDate'
             }]
-        });
-        Ext.apply(me, {
-            items: [me.formPanel]
-        });
+        };
 
         me.callParent();
     }

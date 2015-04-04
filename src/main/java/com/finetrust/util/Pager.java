@@ -9,6 +9,12 @@ public class Pager {
     private long limit;
     public Pager() {}
 
+    public Pager(int page, long start, long limit) {
+        this.page = page;
+        this.start = start;
+        this.limit = limit;
+    }
+
     public int getPage() {
         return page;
     }

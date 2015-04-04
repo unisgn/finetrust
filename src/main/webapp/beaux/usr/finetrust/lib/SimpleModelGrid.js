@@ -48,7 +48,7 @@
     onItemdblclick: function (dom, record) {
         var me = this;
         me.launchModelCard({
-            mode:'read',
+            readonly:true,
             record: record
         });
     },
@@ -71,7 +71,6 @@
                     text: '新建',
                     handler: function () {
                         me.launchModelCard({
-                            mode: 'create',
                             store: me.getStore()
                         });
                     },
@@ -80,7 +79,6 @@
                     text:'查看',
                     handler: function () {
                         me.launchModelCard({
-                            mode:'read',
                             record: record
                         });
                     }
@@ -88,7 +86,6 @@
                     text:'编辑',
                     handler: function () {
                         me.launchModelCard({
-                            mode: 'update',
                             record: record
                         });
                     },
@@ -96,7 +93,7 @@
                 },{
                     text:'删除',
                     handler: function () {
-                        me.getStore().remove(record);
+                        record.drop(); //
                     },
                     scope: me
                 }]

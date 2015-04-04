@@ -1,9 +1,6 @@
 package com.finetrust.domain.entity;
 
-import com.finetrust.lib.ProjectType;
-
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;

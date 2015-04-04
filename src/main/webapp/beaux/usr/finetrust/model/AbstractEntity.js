@@ -17,6 +17,7 @@
         {name:'archived', type:'boolean', defaultValue:false},
         {name:'active', type:'boolean', defaultValue: true}
     ],
+    versionProperty: 'version',
     identifier:'primitive',
     schema: {
         namespace: 'Finetrust.model',

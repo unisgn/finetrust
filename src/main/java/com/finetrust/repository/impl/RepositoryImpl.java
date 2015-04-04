@@ -37,6 +37,7 @@ public class RepositoryImpl<E extends Serializable, PK extends Serializable> ext
         return getHibernateTemplate().loadAll(clazz);
     }
 
+    @SuppressWarnings(value = "unchecked")
     public List<E> query(ParamWrapper params) {
         if (params == null) {
             return getAll();
