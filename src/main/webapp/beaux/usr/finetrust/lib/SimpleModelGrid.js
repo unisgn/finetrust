@@ -48,7 +48,6 @@
     onItemdblclick: function (dom, record) {
         var me = this;
         me.launchModelCard({
-            readonly:true,
             record: record
         });
     },
@@ -79,6 +78,7 @@
                     text:'查看',
                     handler: function () {
                         me.launchModelCard({
+                            readonly: true,
                             record: record
                         });
                     }

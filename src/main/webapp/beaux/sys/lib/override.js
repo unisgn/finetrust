@@ -51,7 +51,7 @@ Ext.override(Ext.form.field.Text, {
         var me = this,
             _flag = !!flag,
             el = me.inputEl;
-        me.clickToEdit = (_flag);
+        me.clickToEdit = _flag;
         if (_flag) {
             me.mon(el, {
                 scope: me,

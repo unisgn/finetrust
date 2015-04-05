@@ -24,6 +24,7 @@
         proxy:{
             type:'rest',
             url:'../rest/{entityName}',
+            format: 'json',
             reader:{
                 type:'json'
             }
