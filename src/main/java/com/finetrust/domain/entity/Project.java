@@ -11,6 +11,7 @@ import java.util.Date;
 @Entity
 public class Project extends BusinessEntity {
 
+    // project base info
     private float feeRate;
     private int estimateScale;
     private int duration;
@@ -18,15 +19,30 @@ public class Project extends BusinessEntity {
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date estimateSetupDate;
 
-    private String contractNo;
     private String description;
 
+
+    /**
+     * Redundancy Info for Project Contract
+     */
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date setupDate;
+    private ContractStatus contractStatus;
+    private String contractNo;
 
+    /**
+     * Redundancy Info for Project Online
+     */
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date onlineDate;
     private int onlineScale;
+
+
+    /**
+     * Redundancy Info for Project Operation Assignment
+     */
+    private String assetCode;
+    private String accountBookNo;
 
     public float getFeeRate() {
         return feeRate;

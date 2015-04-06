@@ -6,9 +6,9 @@ import java.util.Set;
 /**
  * Created by 0xFranCiS on Mar 29, 2015.
  */
-public class ProjectOperatorAssignment {
+public class ProjectOperatorAssignment extends AuditableEntity {
     private Project project;
     private String assetCode;
-    private String accountNo;
+    private String accountBookNo;
     private Set<ProjectOperator> operators = new HashSet<ProjectOperator>();
 }

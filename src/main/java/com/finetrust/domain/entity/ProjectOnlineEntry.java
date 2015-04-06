@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * Created by 0xFranCiS on Apr 06, 2015.
  */
-public class ProjectOnlineEntry {
+public class ProjectOnlineEntry extends AuditableEntity {
     private Project project;
     private Date onlineDate;
     private float onlineScale;
