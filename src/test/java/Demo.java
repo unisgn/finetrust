@@ -1,8 +1,12 @@
+import org.testng.annotations.Test;
+
 /**
  * Created by 0xFranCiS on Mar 28, 2015.
  */
 public class Demo {
-    public static void main(String[] args) {
-        System.out.println(Integer.MAX_VALUE);
+
+    @Test
+    public void test() {
+        System.out.println(Long.MAX_VALUE);
     }
 }

@@ -9,7 +9,7 @@
   <version>1.0-SNAPSHOT</version>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring.version>4.1.0.RELEASE</spring.version>
+    <spring.version>4.1.6.RELEASE</spring.version>
     <hibernate.version>4.3.6.Final</hibernate.version>
     <spring.security.version>4.0.0.RELEASE</spring.security.version>
     <jackson.version>2.2.0</jackson.version>
@@ -20,6 +20,8 @@
     <jbpm.version>6.1.0.Final</jbpm.version>
     <aspectj.version>1.8.2</aspectj.version>
   </properties>
+
+
 
   <repositories>
     <repository>
@@ -52,6 +54,17 @@
 
   </repositories>
 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-framework-bom</artifactId>
+        <version>${spring.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
     <!--spring framework-->
@@ -88,12 +101,7 @@
       <artifactId>spring-orm</artifactId>
       <version>${spring.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-test</artifactId>
-      <version>${spring.version}</version>
-      <scope>test</scope>
-    </dependency>
+
 
 
     <!-- Spring AOP + AspectJ -->
@@ -276,6 +284,21 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- TestNG -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.1.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
       <scope>test</scope>
     </dependency>
 

@@ -26,7 +26,8 @@
             url:'../rest/{entityName}',
             format: 'json',
             reader:{
-                type:'json'
+                type:'json',
+                rootProperty: 'data'
             }
         }
     }

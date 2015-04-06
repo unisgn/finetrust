@@ -1,5 +1,6 @@
 package com.finetrust.web;
 
+import com.finetrust.util.MetaBuilder;
 import com.finetrust.util.ParamWrapper;
 import com.finetrust.domain.entity.Project;
 import com.finetrust.repository.ProjectRepo;
@@ -22,8 +23,8 @@ public class ProjectCtrl {
     private ProjectMgr mgr;
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Project> query(@ModelAttribute ParamWrapper wrapper) {
-        return repo.query(wrapper);
+    public MetaBuilder query(@ModelAttribute ParamWrapper param) {
+        return new MetaBuilder<List<Project>>().data(repo.query(param));
     }
 
     @RequestMapping(method = RequestMethod.POST)

@@ -52,19 +52,11 @@ Ext.override(Ext.form.field.Text, {
             _flag = !!flag,
             el = me.inputEl;
         me.clickToEdit = _flag;
-        if (_flag) {
-            me.mon(el, {
-                scope: me,
-                focus: me.toggleReadOnly,
-                blur: me.toggleReadOnly
-            });
-        } else {
-            me.mun(el, {
-                scope: me,
-                focus: me.toggleReadOnly,
-                blur: me.toggleReadOnly
-            });
-        }
+        me[_flag ? 'mon' : 'mun'](el, {
+            scope: me,
+            focus: me.toggleReadOnly,
+            blur: me.toggleReadOnly
+        });
     },
 
 
