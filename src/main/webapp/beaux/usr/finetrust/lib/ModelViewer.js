@@ -7,7 +7,7 @@
  * the detail card layout (as it is difficult to auto layout the fields) should be implemented by concrete entity
  */
 ;
-Ext.define('Finetrust.lib.SimpleModelCard', {
+Ext.define('Finetrust.lib.ModelViewer', {
     extend: 'Beaux.sys.lib.cassie.XWindow',
 
     layout: 'fit',

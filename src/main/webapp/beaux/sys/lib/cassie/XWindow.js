@@ -104,7 +104,7 @@
     },
 
     /**
-     * @returns {null}
+     * @returns {Object}
      */
     getApplication: function() {
         return this.application;
@@ -131,13 +131,13 @@
          * 1, when the close button clicked, only to close window
          * without trigger resetWindows;
          * 2, when the body of the window clicked, should trigger resetWindows;
-         * to achive this, an alternative way might be using the onActivate
+         * to achieve this, an alternative way might be using the onActivate
          * event, but with 2 problems:
          * 1, when the close button clicked, it would trigger the activate event, 
-         * so to trigger resetWindows, not wanted;
+         * so to trigger resetWindows, not expected;
          * 2, when the body of the window clicked, the Ext wouldn't trigger
          * the activate event,
-         * (probably a BUG) and so can not trigger the resetWindows event, not wanted;
+         * (probably a BUG) and so can not trigger the resetWindows event, not expected;
          *
          */
         me.body.on('click', me.onFreezeBodyClick, me);        
@@ -318,7 +318,7 @@
     },
 
     /**
-     * @override {@link Ext.util.Floating.#fitContainer}
+     * @override {@link Ext.util.Floating.#fitContainer} override to make maximize to be constrained to the desktop region.
      */
     fitContainer: function(animate) {
         var me = this,

@@ -33,12 +33,7 @@ Ext.define('Beaux.sys.lib.cassie.WindowArranger', {
         var me = this;
         var _winCount = me.getWindowManager().getWindows().length;
         if(_winCount > 0) {
-            //            return me[me.arranged ? 'resetWindows':'arrangeWindows']();
-            if (me.arranged) {
-                me.resetWindows();
-            } else {
-                me.arrangeWindows();
-            }
+            me[me.arranged ? 'resetWindows':'arrangeWindows']();
         }
     },
 
@@ -60,10 +55,9 @@ Ext.define('Beaux.sys.lib.cassie.WindowArranger', {
                 var _cellWidth = _desk.getWidth() / _cellGrid.cols;
                 var _cellHeight = _desk.getHeight() / _cellGrid.rows;
 
-                var i = 0;
-                _wins.each(function(_win) {
-                    var _cellX = i % _cellGrid.cols;
-                    var _cellY = Math.floor(i / _cellGrid.cols);
+                _wins.each(function(_win, idx) {
+                    var _cellX = idx % _cellGrid.cols;
+                    var _cellY = Math.floor(idx / _cellGrid.cols);
 
                     // http://www.eleqtriq.com/wp-content/static/demos/2010/css3d/matrix2dExplorer.html
                     // http://dev.opera.com/articles/view/understanding-the-css-transforms-matrix/
@@ -75,11 +69,10 @@ Ext.define('Beaux.sys.lib.cassie.WindowArranger', {
 
                     var _ratio = (_r1 <= me.FIX_RATIO && _r2 <= me.FIX_RATIO) ? 1 : me.FIX_RATIO/Math.max(_r1, _r2);
                     _win.transform(_ratio, _dx, _dy);
-                    i++;
                 });
             }
+            me.arranged = true;
         }
-        me.arranged = true;
     },
 
     /**
@@ -143,9 +136,11 @@ Ext.define('Beaux.sys.lib.cassie.WindowArranger', {
         if(_count == 1) {
             return {rows: rows, cols: cols};
         } else {
-            while(_count > rows * cols) {
-                var cell_ratio_if_add_row = (rows + 1) * _ratio / cols; // ((rows + 1) / cols) * _ratio
-                var cell_ratio_if_add_col = rows * _ratio / (cols + 1); // (rows / (cols + 1)) * _ratio
+            var cell_ratio_if_add_row,
+                cell_ratio_if_add_col;
+            while (_count > rows * cols) {
+                cell_ratio_if_add_row = (rows + 1) * _ratio / cols; // ((rows + 1) / cols) * _ratio
+                cell_ratio_if_add_col = rows * _ratio / (cols + 1); // (rows / (cols + 1)) * _ratio
                 if (Math.abs(golden_ratio - cell_ratio_if_add_row) < Math.abs(golden_ratio - cell_ratio_if_add_col)) {
                     rows++;
                 } else {

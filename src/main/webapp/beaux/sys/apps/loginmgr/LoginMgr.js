@@ -2,11 +2,12 @@ Ext.define('Beaux.sys.apps.loginmgr.LoginMgr', {
     singleton : true,
     requires : ['Beaux.sys.lib.XServer' ],
 
-
     rootXWindow : null,
     currentLoginUser : null,
 
-    // @public
+    /**
+     * @public
+     */
     main : function () {
         var me = this;
         Ext.log('start loading loginManager;');
@@ -15,7 +16,10 @@ Ext.define('Beaux.sys.apps.loginmgr.LoginMgr', {
         Ext.log('loginManager loaded;');
     },
 
-    // @private
+    /**
+     * private
+     * @returns {Beaux.sys.apps.loginmgr.RootXWindow}
+     */
     createRootXWindow : function () {
         var me = this;
         return Ext.create('Beaux.sys.apps.loginmgr.RootXWindow');

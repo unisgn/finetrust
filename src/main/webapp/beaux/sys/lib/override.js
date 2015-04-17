@@ -1,6 +1,3 @@
-// helper functions for caret positioning in HTML text fields
-// http://www.sencha.com/forum/showthread.php?95486#post609639
-
 // force to send every field to server even not modified
 // because of hibernate session's save method can not save only the modified field
 ;Ext.override(Ext.data.field.Field, {
@@ -10,6 +7,8 @@
 
 Ext.override(Ext.form.field.Text, {
 
+    // helper functions for caret positioning in HTML text fields
+    // http://www.sencha.com/forum/showthread.php?95486#post609639
     setCursorPosition: function(pos) {
         var el = this.inputEl.dom;
         if (typeof(el.selectionStart) === "number") {

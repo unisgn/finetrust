@@ -15,7 +15,7 @@
         anchor: '100%'
     },
     defaultType: 'textfield',
-    html: '<p/><p>Welcome Login Beaux.</p>',
+    html: '<p>Welcome Login Beaux.</p>',
     
     initComponent: function() {
         var me = this;

@@ -1,5 +1,5 @@
 Ext.define('Beaux.sys.apps.cassie.Cassie', {
-    extend: 'Beaux.sys.lib.Desktop',
+    extend: 'Beaux.sys.lib.DesktopEnvironment',
 
     singleton: true,
     requires: [
@@ -37,7 +37,7 @@ Ext.define('Beaux.sys.apps.cassie.Cassie', {
         me.rootXWindow = me.createRootXWindow();
         Beaux.sys.lib.XServer.setRootXWindow(me.rootXWindow);
         Ext.log('cassie desktop environment loaded;');
-        this.callParent();
+        me.callParent();
     },
 
     getRootXWindow: function () {

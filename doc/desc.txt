@@ -1,0 +1,9 @@
+project process:
+basic info
+setup/contract
+online
+operator assignment
+operation info
+accounts
+supervise    -> supervise journal
+archive

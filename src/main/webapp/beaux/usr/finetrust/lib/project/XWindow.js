@@ -3,7 +3,7 @@
  */
 ;
 Ext.define('Finetrust.lib.project.XWindow', {
-    extend: 'Finetrust.lib.SimpleModelCard',
+    extend: 'Finetrust.lib.ModelViewer',
 
     model: 'Finetrust.model.Project',
     title: '项目立项',

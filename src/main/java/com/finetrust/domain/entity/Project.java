@@ -11,7 +11,16 @@ import java.util.Date;
 @Entity
 public class Project extends BusinessEntity {
 
-    // project base info
+    public enum ProjectType {
+        TRADITIONAL,
+        FASHION;
+    }
+
+    /**
+     * ==================
+     * Project Basic Info
+     * ==================
+     */
     private float feeRate;
     private int estimateScale;
     private int duration;
@@ -23,26 +32,69 @@ public class Project extends BusinessEntity {
 
 
     /**
-     * Redundancy Info for Project Contract
+     * ==========================
+     * Project Contract reference
+     * ==========================
      */
+    private int contractEntryStatus;
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date setupDate;
     private ContractStatus contractStatus;
     private String contractNo;
 
     /**
-     * Redundancy Info for Project Online
+     * ========================
+     * Project Online reference
+     * ========================
      */
+    private int onlineEntryStatus;
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date onlineDate;
-    private int onlineScale;
+    private float onlineScale;
 
 
     /**
-     * Redundancy Info for Project Operation Assignment
+     * =====================================
+     * Project Operator Assignment reference
+     * =====================================
      */
+    private int operatorEntryStatus;
     private String assetCode;
     private String accountBookNo;
+
+    /**
+     * ================================
+     * Project Operation info reference
+     * ================================
+     */
+    private int operationEntryStatus;
+
+
+    /**
+     * ==========================
+     * Project Accounts reference
+     * ==========================
+     */
+    private int accountEntryStatus;
+
+
+    /**
+     * ===========================
+     * Project supervise reference
+     * ===========================
+     */
+    private int superviseEntryStatus;
+
+
+    /**
+     * =========================
+     * Project Archive reference
+     * =========================
+     */
+    private int archiveEntryStatus;
+    private String archiveNo;
+
+
 
     public float getFeeRate() {
         return feeRate;
@@ -108,11 +160,35 @@ public class Project extends BusinessEntity {
         this.onlineDate = onlineDate;
     }
 
-    public int getOnlineScale() {
+    public float getOnlineScale() {
         return onlineScale;
     }
 
-    public void setOnlineScale(int onlineScale) {
+    public void setOnlineScale(float onlineScale) {
         this.onlineScale = onlineScale;
+    }
+
+    public ContractStatus getContractStatus() {
+        return contractStatus;
+    }
+
+    public void setContractStatus(ContractStatus contractStatus) {
+        this.contractStatus = contractStatus;
+    }
+
+    public String getAssetCode() {
+        return assetCode;
+    }
+
+    public void setAssetCode(String assetCode) {
+        this.assetCode = assetCode;
+    }
+
+    public String getAccountBookNo() {
+        return accountBookNo;
+    }
+
+    public void setAccountBookNo(String accountBookNo) {
+        this.accountBookNo = accountBookNo;
     }
 }

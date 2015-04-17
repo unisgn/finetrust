@@ -6,8 +6,7 @@ import java.util.Set;
 /**
  * Created by 0xFranCiS on Mar 29, 2015.
  */
-public class ProjectSuperviseEntry extends AuditableEntity {
-    private Project project;
+public class ProjectSuperviseEntry extends ProjectSegment {
     private Set<ProjectSuperviseItem> items = new HashSet<ProjectSuperviseItem>();
 
 }

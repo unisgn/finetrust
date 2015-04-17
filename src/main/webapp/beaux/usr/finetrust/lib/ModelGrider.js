@@ -5,7 +5,7 @@
  * input: store, display fields ( and width), filter fields (and group fields)
  * output: the grid (fancy infinite style), and a filter/grouping sub panel
  */
-;Ext.define('Finetrust.lib.SimpleModelGrid', {
+;Ext.define('Finetrust.lib.ModelGrider', {
     extend: 'Ext.grid.Panel',
 
     /**
@@ -28,6 +28,8 @@
      * @type {Ext.KeyMap}
      */
     keymap: undefined,
+
+    queryPanel: undefined,
 
     initComponent: function () {
         var me = this;
@@ -147,15 +149,14 @@
 
     onDestroy: function () {
         var me = this;
-        if (me.keymap) {
-            me.keymap.destroy();
-        }
+
+        me.keymap && me.keymap.destroy();
+
         me.menus.each(function (key, val, len) {
             val.destroy();
         });
-        if (me.queryPanel) {
-            me.queryPanel.destroy();
-        }
+
+        me.queryPanel && me.queryPanel.destroy();
     },
 
     launchModelCard: function (cfg) {

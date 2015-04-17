@@ -7,7 +7,7 @@ import javax.persistence.MappedSuperclass;
  * Created by 0xFranCiS on Mar 23, 2015.
  */
 @MappedSuperclass
-public abstract class BusinessEntity extends AbstractEntity<Long> {
+public abstract class BusinessEntity extends AuditableEntity {
     @Column(nullable = false, unique = true, updatable = false, length = 64)
     private String number;
 

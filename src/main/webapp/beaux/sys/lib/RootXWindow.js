@@ -2,5 +2,6 @@
     extend: 'Ext.container.Container',
     alias: 'widget.beaux.RootXWindow',
 
-    baseCls: 'RootXWindow'
+    baseCls: 'root-x-window'
+
 });

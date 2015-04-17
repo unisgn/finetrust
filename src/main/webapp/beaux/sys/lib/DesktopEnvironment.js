@@ -1,4 +1,4 @@
-;Ext.define('Beaux.sys.lib.Desktop', {
+;Ext.define('Beaux.sys.lib.DesktopEnvironment', {
     /**
      * @interface
      */

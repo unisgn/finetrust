@@ -5,4 +5,5 @@ package com.finetrust.domain.entity;
  */
 public class FlowInstance {
 
+
 }

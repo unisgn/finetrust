@@ -1,5 +1,5 @@
 ﻿Ext.define('Beaux.usr.apps.editor.Editor', {
-    extend: 'Beaux.sys.application.Application', 
+    extend: 'Beaux.sys.lib.Application',
     
     requires: [
         'Ext.form.field.HtmlEditor'
@@ -10,7 +10,7 @@
         /**
          * @static
          */
-        main: function(cfg) {
+        launch: function(cfg) {
             return new this(cfg);
         }
     },
@@ -24,7 +24,7 @@
     
     initXWindow: function() {
         var me = this;
-        var win = Ext.create('Beaux.sys.desktop.lib.XWindow', {
+        var win = Ext.create('Beaux.sys.lib.cassie.XWindow', {
             title:'EditorEditorEditorEditorEditor',
             width:600,
             height:400,

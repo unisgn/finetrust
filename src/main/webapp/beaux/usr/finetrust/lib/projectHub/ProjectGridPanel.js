@@ -2,7 +2,7 @@
  * Created by 0xFranCiS on Mar 28, 2015.
  */
 ;Ext.define('Finetrust.lib.projectHub.ProjectGridPanel', {
-    extend: 'Finetrust.lib.SimpleModelGrid',
+    extend: 'Finetrust.lib.ModelGrider',
 
     requires:[
         'Finetrust.model.Project'

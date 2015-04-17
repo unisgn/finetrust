@@ -18,16 +18,15 @@ public class User implements Persistable<Integer>{
     private boolean active = true;
 
     @Column(nullable = false, unique = true, updatable = false, length = 64)
-    private String name;
+    private String username;
     private String password;
-    private String alias;
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String name) {
+        this.username = name;
     }
 
     public String getPassword() {
@@ -38,20 +37,11 @@ public class User implements Persistable<Integer>{
         this.password = password;
     }
 
-    public String getAlias() {
-        return alias;
-    }
-
-    public void setAlias(String alias) {
-        this.alias = alias;
-    }
-
-    @Override
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    protected void setId(Integer id) {
         this.id = id;
     }
 
@@ -59,7 +49,7 @@ public class User implements Persistable<Integer>{
         return version;
     }
 
-    public void setVersion(int version) {
+    protected void setVersion(int version) {
         this.version = version;
     }
 
@@ -67,7 +57,7 @@ public class User implements Persistable<Integer>{
         return archived;
     }
 
-    public void setArchived(boolean archived) {
+    protected void setArchived(boolean archived) {
         this.archived = archived;
     }
 
@@ -75,7 +65,7 @@ public class User implements Persistable<Integer>{
         return active;
     }
 
-    public void setActive(boolean active) {
+    protected void setActive(boolean active) {
         this.active = active;
     }
 

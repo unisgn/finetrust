@@ -34,7 +34,7 @@
 
             /**
              *
-             * @param key {String | Number}
+             * @param {String | Number} key
              * @returns {Object}
              */
             get: function (key) {
@@ -46,7 +46,7 @@
     return {
 
         /**
-         * @param {Beaux.sys.lib.Application} _proc
+         * @param  {Beaux.sys.lib.Application} _proc
          * @returns {Number} the pid of _proc assigned by mgr
          */
         register: function (_proc) {

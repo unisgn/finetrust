@@ -5,6 +5,8 @@
       <w>containercontext</w>
       <w>containercontextmenu</w>
       <w>finetrust</w>
+      <w>grider</w>
+      <w>hbox</w>
       <w>itemcontext</w>
       <w>itemcontextmenu</w>
       <w>itemdbclick</w>

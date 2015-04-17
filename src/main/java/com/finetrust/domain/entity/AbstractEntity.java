@@ -1,10 +1,7 @@
 package com.finetrust.domain.entity;
 
-import org.joda.time.DateTime;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by 0xFranCiS on Mar 23, 2015.
@@ -17,12 +14,6 @@ public abstract class AbstractEntity<PK extends Serializable> implements Persist
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private PK id;
-
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastModifiedDate;
 
     @Version
     private int version;
@@ -45,23 +36,6 @@ public abstract class AbstractEntity<PK extends Serializable> implements Persist
         return null == getId();
     }
 
-
-    public DateTime getCreatedDate() {
-        return null == createdDate ? null : new DateTime(createdDate);
-    }
-
-    public void setCreatedDate(final DateTime createdDate) {
-        this.createdDate = null == createdDate ? null : createdDate.toDate();
-    }
-
-    public DateTime getLastModifiedDate() {
-        return null == lastModifiedDate ? null : new DateTime(lastModifiedDate);
-    }
-
-    public void setLastModifiedDate(final DateTime lastModifiedDate) {
-        this.lastModifiedDate = null == lastModifiedDate ? null : lastModifiedDate.toDate();
-    }
-
     public int getVersion() {
         return version;
     }
@@ -74,7 +48,7 @@ public abstract class AbstractEntity<PK extends Serializable> implements Persist
         return archived;
     }
 
-    public void setArchived(boolean archived) {
+    protected void setArchived(boolean archived) {
         this.archived = archived;
     }
 
@@ -82,7 +56,7 @@ public abstract class AbstractEntity<PK extends Serializable> implements Persist
         return active;
     }
 
-    public void setActive(boolean active) {
+    protected void setActive(boolean active) {
         this.active = active;
     }
 
