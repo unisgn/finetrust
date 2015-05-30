@@ -81,7 +81,7 @@
      */
     initComponent: function() {
         var me = this;
-        me.renderTo = me.getDesktop().getRootXWindow().getDesk().getEl();
+        me.renderTo = me.getDesktop().getRootXWindow().getDesk();
         me.callParent();
         me.getWindowManager().registerWindow(me);
 

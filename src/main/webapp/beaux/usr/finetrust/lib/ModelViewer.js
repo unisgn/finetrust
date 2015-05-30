@@ -12,12 +12,12 @@ Ext.define('Finetrust.lib.ModelViewer', {
 
     layout: 'fit',
     title: '',
-    titleProperty: '',
+    titleProperty: undefined,
     width: 600,
     height: 400,
 
-    formConfig:null,
-    formPanel:null,
+    formConfig:undefined,
+    formPanel:undefined,
 
     edit_indicator: ' * ',
 
@@ -51,7 +51,7 @@ Ext.define('Finetrust.lib.ModelViewer', {
     initComponent: function () {
         var me = this,
             readonly = !!me.readonly;
-        me.formPanel = Ext.create('Ext.form.Panel', me.formConfig);
+        me.formPanel = me.buildFormPanel();
         me.items = [me.formPanel];
         if (!readonly) {
             me.dockedItems = [{
@@ -100,22 +100,16 @@ Ext.define('Finetrust.lib.ModelViewer', {
     },
 
     /**
-     * implemented by concrete entity
-     *
+     * @interface
      */
-    buildModelCard: function () {
-
-    },
+    buildFormPanel: Ext.emptyFn,
 
     reset: function () {
         this.formPanel.getForm().reset();
     },
 
     handle_btn_reset: function () {
-        var me = this;
-        if (me.mode = me.MODE_EDIT) {
-            me.reset();
-        }
+        this.reset();
     },
     handle_btn_save: function () {
         var me = this;
@@ -142,8 +136,8 @@ Ext.define('Finetrust.lib.ModelViewer', {
 
     /**
      *
-     * @param [success]
-     * @param [callback]
+     * @param {Function} [success]
+     * @param {Function} [callback]
      */
     save: function (success, callback) {
         var me = this;

@@ -31,8 +31,8 @@ Ext.onReady(function () {
         }
     });
 
-    Beaux.setLoginMgr(null);
-    Beaux.setDesktop(Beaux.sys.apps.cassie.Cassie);
+    Beaux.setDisplayManager(null);
+    Beaux.setDesktopManager(Beaux.sys.apps.cassie.Cassie);
     Beaux.boot();
 
 });

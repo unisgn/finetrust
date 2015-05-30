@@ -6,10 +6,10 @@ import java.util.Set;
 /**
  * Created by 0xFranCiS on Mar 29, 2015.
  */
-public class ProjectSuperviseItem extends AbstractEntity<Long> {
+public class ProjectSupervisionItem extends AbstractEntity<Long> {
     private Project project;
-    private String content;
+    private String contentType;
     private String subject;
     private boolean automatic;
-    private Set<ProjectSuperviseJournal> journals = new HashSet<ProjectSuperviseJournal>();
+    private Set<ProjectSupervisionJournal> journals = new HashSet<ProjectSupervisionJournal>();
 }

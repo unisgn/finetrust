@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * Created by 0xFranCiS on Mar 29, 2015.
  */
-public class ProjectOperatorEntry extends ProjectSegment {
+public class ProjectOperators extends ProjectPart {
     private String assetCode;
     private String accountBookNo;
     private Set<ProjectOperator> operators = new HashSet<ProjectOperator>();

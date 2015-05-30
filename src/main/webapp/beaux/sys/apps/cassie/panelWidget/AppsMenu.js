@@ -170,10 +170,6 @@
 
     },
 
-    getApplicationLauncher: function () {
-        return Beaux.sys.lib.ApplicationLauncher;
-    },
-
     /**
      * @private
      * @param {String} appCls class name for the app to launch

@@ -1,24 +1,29 @@
-Ext.define('Beaux.widget.MathExpField', {
+/**
+ *
+ */
+;Ext.define('Beaux.widget.MathExField', {
     extend: 'Ext.form.field.Text',
-    alias:'widget.mathexpfield',
-    xtype:'mathexpfield',
+    alias:'widget.mathexfield',
+    xtype:'mathexfield',
 
     initComponent: function() {
         var me = this;
         me.callParent();
         me.on({
-            blur: me.parseExp,
-            specialkey: me.parseExp,
+            blur: me.evaluate,
+            specialkey: me.evaluate,
             scope: me
         });
     },
 
-    parseExp: function(field) {
+    evaluate: function() {
+        var me = this;
         try {
-            field.setValue(Parser.evaluate(String(field.getValue())));
+            var val = Parser.evaluate(field.getValue() + '');
+            me.setValue(val);
         } catch (e) {
-            // do nothing, left to Ext to handle
+            // invalid expression
+            me.setValue('');
         }
-        
     }
 });

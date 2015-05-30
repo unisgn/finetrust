@@ -6,7 +6,7 @@ import javax.persistence.MappedSuperclass;
  * Created by 0xFranCiS on Apr 12, 2015.
  */
 @MappedSuperclass
-public class ProjectSegmentFlowable extends ProjectSegment {
+public class ProjectPartFlowable extends ProjectPart {
     private FlowInstance flowInstance;
     private FlowStatus flowStatus;
 

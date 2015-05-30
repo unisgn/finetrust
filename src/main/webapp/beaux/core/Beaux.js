@@ -1,14 +1,14 @@
 ;(function () {
     /**
      * @private
-     * @type {Beaux.sys.lib.Desktop}
+     * @type {Beaux.sys.lib.DesktopEnvironment}
      */
-    var desktop;
+    var de;
 
     /**
      * private
      */
-    var loginMgr;
+    var dm;
 
     /**
      * @private
@@ -18,26 +18,26 @@
 
     /**
      *
-     * @returns {Beaux.sys.lib.Desktop}
+     * @returns {Beaux.sys.lib.DesktopEnvironment}
      */
-    Beaux.getDesktop = function () {
-        return desktop;
+    Beaux.getDesktopManager = function () {
+        return de;
     };
 
     /**
      *
-     * @param {Beaux.sys.lib.Desktop} _desktop
+     * @param {Beaux.sys.lib.DesktopEnvironment} desktopMgr
      */
-    Beaux.setDesktop = function (_desktop) {
-        desktop = _desktop;
+    Beaux.setDesktopManager = function (desktopMgr) {
+        de = desktopMgr;
     };
 
-    Beaux.getLoginMgr = function () {
-        return loginMgr;
+    Beaux.getDisplayManager = function () {
+        return dm;
     };
 
-    Beaux.setLoginMgr = function (_loginMgr) {
-        loginMgr = _loginMgr;
+    Beaux.setDisplayManager = function (displayMgr) {
+        dm = displayMgr;
     };
 
     Beaux.getProcessMgr = function () {
@@ -52,10 +52,11 @@
 
         Beaux.sys.lib.XServer.main();
 
-        if (loginMgr) {
-            loginMgr.main();
-        } else if (desktop) {
-            desktop.main();
+
+        if (dm) {
+            dm.main();
+        } else if (de) {
+            de.main();
         }
 
         Ext.log('beaux loaded;');

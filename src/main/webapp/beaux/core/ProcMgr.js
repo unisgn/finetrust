@@ -43,6 +43,18 @@
         }
     }());
 
+    function check (obj) {
+        if (typeof(obj) != 'object') {
+            return false;
+        } else if (!obj.superclass) {
+            return false;
+        } else if (obj.superclass.$className === 'Beaux.sys.lib.Application' ) {
+            return true;
+        } else {
+            return check(obj.superclass);
+        }
+    }
+
     return {
 
         /**
@@ -51,10 +63,11 @@
          */
         register: function (_proc) {
             var pid = pidGen.next();
-            if (_proc) { //TODO determine _proc is extends Beaux.sys.Application, (implements by JSDoc)
+            if (check(_proc)) {
                 procColl.register(pid, _proc);
                 return pid;
             } else {
+                console.log('register rejected: only a sub class of #Beaux.sys.lib.Application allowed.');
                 return -1;
             }
         },
@@ -79,7 +92,7 @@
 
         terminate: function (pid) {
             var proc = procColl.get(pid);
-            proc && proc.terminate && proc.terminate();
+            proc && proc.terminate();
         }
     }
 });

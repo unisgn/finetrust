@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by 0xFranCiS on Apr 06, 2015.
  */
-public class ProjectContractEntry extends ProjectSegment {
+public class ProjectContract extends ProjectPart {
     private Date setupDate;
     private ContractStatus contractStatus = ContractStatus.BLANK;
     private String contractNo;

@@ -29,6 +29,9 @@
      */
     keymap: undefined,
 
+    /**
+     * @type Beaux.sys.lib.cassie.XWindow
+     */
     queryPanel: undefined,
 
     initComponent: function () {
@@ -44,6 +47,13 @@
             destroy: me.onDestroy,
             scope: me
         });
+
+        if (me.queryPanel) {
+            me.queryPanel.on({
+                criteriaReady: me.onCriteriaReady,
+                scope: me
+            });
+        }
 
     },
 
@@ -134,16 +144,25 @@
     onAfterrender: function () {
         var me = this;
 
-        if (!me.keymap) {
-            me.keymap = Ext.create('Ext.KeyMap', {
-                target: me.getEl(),
-                binding: [{
+        if (me.queryPanel) {
+            if (me.keymap) {
+                me.keymap.addBinding({
                     key: 's',
                     shift: true,
                     handler: me.launchQueryPanel,
                     scope: me
-                }]
-            });
+                });
+            } else {
+                me.keymap = Ext.create('Ext.KeyMap', {
+                    target: me.getEl(),
+                    binding: [{
+                        key: 's',
+                        shift: true,
+                        handler: me.launchQueryPanel,
+                        scope: me
+                    }]
+                });
+            }
         }
     },
 
@@ -165,14 +184,15 @@
     },
 
     launchQueryPanel: function () {
-        var me = this;
-        if (!me.queryPanel) {
-            me.queryPanel = Ext.create('Finetrust.widget.GridSearchPanel');
-        }
-        me.queryPanel.show();
+        this.queryPanel && this.queryPanel.show();
     },
 
-    queryByCriteria: function () {
-        
-    }
+    onCriteriaReady: function (args) {
+        this.queryByCriteria(args[0]); // passed by queryPanel's fireEvent('criteriaReady')
+    },
+
+    /**
+     * @interface
+     */
+    queryByCriteria: Ext.emptyFn
 });

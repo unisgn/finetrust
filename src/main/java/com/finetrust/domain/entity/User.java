@@ -1,5 +1,8 @@
 package com.finetrust.domain.entity;
 
+
+import org.apache.commons.lang3.StringUtils;
+
 import javax.persistence.*;
 
 /**
@@ -26,7 +29,11 @@ public class User implements Persistable<Integer>{
     }
 
     public void setUserName(String name) {
-        this.username = name;
+        if (validateUsername(name)) {
+            this.username = name.trim().toUpperCase();
+        } else {
+
+        }
     }
 
     public String getPassword() {
@@ -57,7 +64,7 @@ public class User implements Persistable<Integer>{
         return archived;
     }
 
-    protected void setArchived(boolean archived) {
+    public void setArchived(boolean archived) {
         this.archived = archived;
     }
 
@@ -65,11 +72,15 @@ public class User implements Persistable<Integer>{
         return active;
     }
 
-    protected void setActive(boolean active) {
+    public void setActive(boolean active) {
         this.active = active;
     }
 
     public boolean isNew() {
         return null == getId();
+    }
+
+    private boolean validateUsername(String username) {
+        return (username != null && StringUtils.isNotBlank(username) && username.trim().matches("^[_a-zA-Z][-._a-zA-Z0-9]*[-_a-zA-Z0-9]$"));
     }
 }

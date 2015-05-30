@@ -10,7 +10,7 @@
     /**
      * @override
      */
-    layout: 'border',
+    layout: 'vbox',
 
     /**
      * @private
@@ -24,13 +24,18 @@
      */
     initComponent: function() {
         var me = this;
-        var banner = me.createBanner();
-        me.items = [{
-            region: 'north',
-            items: [banner]
-        },{
-            region: 'center'
-        }];
+
+        Ext.apply(me, {
+            dockedItems: [{
+                dock:'top',
+                items:[me.createBanner()]
+            }],
+            items:[{
+                xtype: 'container',
+                padding: 5,
+                html: 'Welcome To Beaux'
+            }]
+        });
 
         me.globalKeymap =  Ext.create('Ext.util.KeyMap', {
             target: Ext.getBody(),
@@ -64,7 +69,7 @@
      * @returns {Beaux.sys.lib.cassie.EdgePanel}
      */
     getDesk: function() {
-        return this.items.getAt(1);
+        return this.body;
     },
 
     /**

@@ -14,7 +14,7 @@
 
         Ext.apply(me, {
             items:[
-                Ext.create('Finetrust.lib.projectHub.ProjectGridPanel')
+                Ext.create('Finetrust.lib.projectHub.GridPanel')
             ]
         });
         me.callParent(cfg);

@@ -2,7 +2,7 @@
  * Created by 0xFranCiS on Mar 28, 2015.
  */
 ;
-Ext.define('Finetrust.widget.GridSearchPanel', {
+Ext.define('Finetrust.widget.GriderSearchPanel', {
     extend: 'Beaux.sys.lib.cassie.XWindow',
 
     model: '',
@@ -27,6 +27,8 @@ Ext.define('Finetrust.widget.GridSearchPanel', {
                         xtype: 'button',
                         text: 'ok',
                         handler: function () {
+                            // prepare criteria data
+                            me.fireEvent('criteriaReady', me.generateCriteria());
                             me.hide();
                         }
                     }, {
@@ -41,5 +43,10 @@ Ext.define('Finetrust.widget.GridSearchPanel', {
             }
         });
         me.callParent(cfg);
-    }
+    },
+
+    /**
+     * @interface
+     */
+    generateCriteria: Ext.emptyFn
 });

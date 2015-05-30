@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/log4j.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" charset="UTF-8" />
+    <file url="file://$USER_HOME$/public_html/fractal.html" charset="UTF-8" />
   </component>
 </project>

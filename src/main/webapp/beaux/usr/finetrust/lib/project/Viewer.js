@@ -2,7 +2,7 @@
  * Created by 0xFranCiS on Mar 29, 2015.
  */
 ;
-Ext.define('Finetrust.lib.project.XWindow', {
+Ext.define('Finetrust.lib.project.Viewer', {
     extend: 'Finetrust.lib.ModelViewer',
 
     model: 'Finetrust.model.Project',
@@ -10,10 +10,8 @@ Ext.define('Finetrust.lib.project.XWindow', {
     width: 600,
     height: 400,
 
-    initComponent: function () {
-        var me = this;
-
-        me.formConfig = {
+    buildFormPanel: function () {
+        return Ext.create('Ext.form.Panel', {
             layout:'form',
             padding:5,
             defaults: {
@@ -50,9 +48,7 @@ Ext.define('Finetrust.lib.project.XWindow', {
                 xtype:'datefield',
                 name:'estimateSetupDate'
             }]
-        };
-
-        me.callParent();
+        });
     }
 
 });

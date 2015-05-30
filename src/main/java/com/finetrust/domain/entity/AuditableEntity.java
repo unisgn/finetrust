@@ -17,11 +17,17 @@ public class AuditableEntity extends AbstractEntity<Long> implements Auditable<U
     @ManyToOne
     private User createdBy;
 
+    @ManyToOne
+    private Organization createdByOrg;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
 
     @ManyToOne
     private User lastModifiedBy;
+
+    @ManyToOne
+    private Organization lastModifiedByOrg;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModifiedDate;

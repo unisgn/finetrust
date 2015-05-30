@@ -11,7 +11,11 @@
       <w>itemcontextmenu</w>
       <w>itemdbclick</w>
       <w>itemdblclick</w>
+      <w>mathexfield</w>
+      <w>mathexpfield</w>
       <w>numberfield</w>
+      <w>rownumberer</w>
+      <w>specialkey</w>
     </words>
   </dictionary>
 </component>

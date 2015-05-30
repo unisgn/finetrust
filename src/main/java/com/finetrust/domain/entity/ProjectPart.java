@@ -6,7 +6,7 @@ import javax.persistence.MappedSuperclass;
  * Created by 0xFranCiS on Apr 07, 2015.
  */
 @MappedSuperclass
-public class ProjectSegment extends AuditableEntity {
+public class ProjectPart extends AuditableEntity {
     private Project project;
 
     public Project getProject() {

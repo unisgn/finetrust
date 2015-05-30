@@ -14,7 +14,7 @@ Ext.define('Beaux.sys.lib.Application', {
 
     /**
      * every single application should implements an static method
-     * launch() to provide an entry to start.
+     * launch() to provide an entry to run.
      * statics: {
      *     launch: function(cfg) {
      *         // implements statement;

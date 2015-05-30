@@ -2,7 +2,7 @@
  * Created by 0xFranCiS on Mar 28, 2015.
  */
 ;Ext.define('Finetrust.lib.projectHub.ProjectGridPanel', {
-    extend: 'Finetrust.lib.ModelGrider',
+    extend: 'Finetrust.lib.ModelGrid',
 
     requires:[
         'Finetrust.model.Project'
@@ -39,7 +39,7 @@
     random_str: function (len) {
         var ret = '';
         for (var i = 0; i < len; i++) {
-            ret += this.str_tab[Ext.Number.randomInt(0,this.str_tab.length - 1)]
+            ret += this.str_tab[Ext.Number.randomInt(0,this.str_tab.length - 1)];
         }
         return ret;
     },
