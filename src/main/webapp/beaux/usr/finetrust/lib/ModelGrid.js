@@ -5,7 +5,7 @@
  * input: store, display fields ( and width), filter fields (and group fields)
  * output: the grid (fancy infinite style), and a filter/grouping sub panel
  */
-;Ext.define('Finetrust.lib.ModelGrider', {
+;Ext.define('Finetrust.lib.ModelGrid', {
     extend: 'Ext.grid.Panel',
 
     /**

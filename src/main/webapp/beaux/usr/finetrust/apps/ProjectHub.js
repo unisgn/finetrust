@@ -13,13 +13,13 @@
                 me.instance.xwindow.show();
             }
         },
-        instance: null
+        instance: undefined
     },
 
     /**
      * @type {Finetrust.lib.projectHub.XWindow}
      */
-    xwindow: null,
+    xwindow: undefined,
 
     constructor: function (cfg) {
         var me = this;
@@ -41,7 +41,7 @@
     terminate: function () {
         var me = this;
         me.callParent();
-        me.self.instance = null;
+        me.self.instance = undefined;
         //TODO implement destroy xwindow
     }
 });

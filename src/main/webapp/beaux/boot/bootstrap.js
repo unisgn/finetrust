@@ -3,8 +3,8 @@ Ext.log('start ext;');
 Ext.Loader.setConfig({
     enabled: true,
     paths: {
-        'Beaux': './',
-        'Finetrust':'./usr/finetrust/'
+        'Beaux': '.',
+        'Finetrust':'./usr/finetrust'
     }
 });
 

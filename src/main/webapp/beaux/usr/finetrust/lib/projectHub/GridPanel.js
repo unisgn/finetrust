@@ -1,7 +1,7 @@
 /**
  * Created by 0xFranCiS on Mar 28, 2015.
  */
-;Ext.define('Finetrust.lib.projectHub.ProjectGridPanel', {
+;Ext.define('Finetrust.lib.projectHub.GridPanel', {
     extend: 'Finetrust.lib.ModelGrid',
 
     requires:[
@@ -10,7 +10,7 @@
 
     model: 'Finetrust.model.Project',
 
-    modelCardClass:'Finetrust.lib.project.XWindow',
+    modelCardClass:'Finetrust.lib.project.Viewer',
 
     viewConfig: {
         stripeRows: true

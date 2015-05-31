@@ -16,8 +16,8 @@ Ext.define('Finetrust.lib.ModelViewer', {
     width: 600,
     height: 400,
 
-    formConfig:undefined,
-    formPanel:undefined,
+    formConfig: undefined,
+    formPanel: undefined,
 
     edit_indicator: ' * ',
 
@@ -30,7 +30,7 @@ Ext.define('Finetrust.lib.ModelViewer', {
 
     readonly: false,
 
-    MODEL_CREATE:'create',
+    MODEL_CREATE: 'create',
     MODE_READ: 'read',
     MODE_UPDATE: 'update',
 
@@ -87,7 +87,8 @@ Ext.define('Finetrust.lib.ModelViewer', {
         if (readonly) {
             me.on({
                 afterrender: function () {
-                    me.formPanel.getForm().getFields().each(function (item) {
+                    var fields = me.formPanel.getForm().getFields();
+                    fields && fields.each(function (item) {
                         item.setClickToEdit && item.setClickToEdit(false);
                         item.setReadOnly && item.setReadOnly(readonly);
                     });
