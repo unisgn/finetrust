@@ -1,6 +1,5 @@
 package com.finetrust.repository.impl;
 
-import com.finetrust.util.Filtable;
 import com.finetrust.util.Filter;
 import com.finetrust.util.ParamWrapper;
 import com.finetrust.repository.Repository;
@@ -17,24 +16,24 @@ import java.util.List;
 /**
  * Created by 0xFranCiS on Mar 23, 2015.
  */
-public class RepositoryImpl<E extends Serializable, PK extends Serializable> extends HibernateDaoSupport implements Repository<E, PK> {
-    private Class<E> clazz;
+public abstract class RepositoryImpl<E extends Serializable, PK extends Serializable>
+        extends HibernateDaoSupport implements Repository<E, PK> {
+    private Class<E> cls;
     public RepositoryImpl() {
-        this.clazz = null;
-        Class c = getClass();
-        Type t = c.getGenericSuperclass();
+        this.cls = null;
+        Type t = getClass().getGenericSuperclass();
         if (t instanceof ParameterizedType) {
             Type[] p = ((ParameterizedType) t).getActualTypeArguments();
-            this.clazz = (Class<E>) p[0];
+            this.cls = (Class<E>) p[0];
         }
     }
 
     public E get(PK id) {
-        return getHibernateTemplate().get(clazz, id);
+        return getHibernateTemplate().get(cls, id);
     }
 
     public List<E> getAll() {
-        return getHibernateTemplate().loadAll(clazz);
+        return getHibernateTemplate().loadAll(cls);
     }
 
     @SuppressWarnings(value = "unchecked")
@@ -45,7 +44,7 @@ public class RepositoryImpl<E extends Serializable, PK extends Serializable> ext
             int start = params.getStart();
             int limit = params.getLimit();
             List<Filter> filters = params.getFilter();
-            DetachedCriteria criteria = DetachedCriteria.forClass(clazz);
+            DetachedCriteria criteria = DetachedCriteria.forClass(cls);
 
             if (filters != null) {
                 String type;

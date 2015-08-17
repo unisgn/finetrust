@@ -44,7 +44,7 @@ Ext.define('Beaux.sys.lib.cassie.WindowArranger', {
     arrangeWindows: function() {
         var me = this;
         if (!me.arranged) {
-            var _wins = me.getWindowManager().getWindows();
+            var _wins = me.getWindowManager().getWindows();// a MixedCollections
             var _winCount = _wins.length;
             if (_winCount) {
                 var _desk = me.getDesk();
@@ -123,25 +123,27 @@ Ext.define('Beaux.sys.lib.cassie.WindowArranger', {
 
     /**
      * initial grid is {rows: 1, columns: 1}
-     * then we add a row or column depending on which will make the cell ratio more close to our golden ratio.
+     * then we add a row or column depending on which will make the cell ratio
+     * more closer to our golden ratio.
      * until the given count less than cell count
      * @private
-     * @brief calculate a cell grid by given (windows) ratio(=region.width / region.height) and (windows) count.
+     * @brief calculate a cell grid by given (windows) ratio(=region.width / region.height)
+     * and (windows) count.
      * @returns {{rows: Number, cols: Number}}
      */
     makeCellGrid: function(_ratio, _count) {
-        var golden_ratio = this.GOLDEN_RATIO;
+        var g_ratio = this.GOLDEN_RATIO;
         var rows = 1;
         var cols = 1;
         if(_count == 1) {
             return {rows: rows, cols: cols};
         } else {
-            var cell_ratio_if_add_row,
-                cell_ratio_if_add_col;
+            var r_row, // cell ratio if add row
+                r_col; // cell ratio if add col
             while (_count > rows * cols) {
-                cell_ratio_if_add_row = (rows + 1) * _ratio / cols; // ((rows + 1) / cols) * _ratio
-                cell_ratio_if_add_col = rows * _ratio / (cols + 1); // (rows / (cols + 1)) * _ratio
-                if (Math.abs(golden_ratio - cell_ratio_if_add_row) < Math.abs(golden_ratio - cell_ratio_if_add_col)) {
+                r_row = (rows + 1) * _ratio / cols; // ((rows + 1) / cols) * _ratio
+                r_col = rows * _ratio / (cols + 1); // (rows / (cols + 1)) * _ratio
+                if (Math.abs(g_ratio - r_row) < Math.abs(g_ratio - r_col)) {
                     rows++;
                 } else {
                     cols++;

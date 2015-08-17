@@ -21,14 +21,8 @@ public class Project extends BusinessEntity {
      * Project Basic Info
      * ==================
      */
-    private float feeRate;
-    private int estimateScale;
-    private int duration;
 
-    @Temporal(value = TemporalType.TIMESTAMP)
-    private Date estimateSetupDate;
-
-    private String description;
+    private ProjectBase basicInfo;
 
 
     /**
@@ -94,55 +88,6 @@ public class Project extends BusinessEntity {
     private int archiveEntryStatus;
     private String archiveNo;
 
-
-
-    public float getFeeRate() {
-        return feeRate;
-    }
-
-    public void setFeeRate(float feeRate) {
-        this.feeRate = feeRate;
-    }
-
-    public int getEstimateScale() {
-        return estimateScale;
-    }
-
-    public void setEstimateScale(int estimateScale) {
-        this.estimateScale = estimateScale;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-
-    public Date getEstimateSetupDate() {
-        return estimateSetupDate;
-    }
-
-    public void setEstimateSetupDate(Date estimateSetupDate) {
-        this.estimateSetupDate = estimateSetupDate;
-    }
-
-    public String getContractNo() {
-        return contractNo;
-    }
-
-    public void setContractNo(String contractNo) {
-        this.contractNo = contractNo;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public Date getSetupDate() {
         return setupDate;

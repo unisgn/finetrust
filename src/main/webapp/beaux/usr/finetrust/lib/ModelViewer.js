@@ -17,6 +17,10 @@ Ext.define('Finetrust.lib.ModelViewer', {
     height: 400,
 
     formConfig: undefined,
+
+    /**
+     * @type {Ext.form.Panel}
+     */
     formPanel: undefined,
 
     edit_indicator: ' * ',
@@ -30,7 +34,7 @@ Ext.define('Finetrust.lib.ModelViewer', {
 
     readonly: false,
 
-    MODEL_CREATE: 'create',
+    MODE_CREATE: 'create',
     MODE_READ: 'read',
     MODE_UPDATE: 'update',
 
